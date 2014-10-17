@@ -17,9 +17,9 @@ namespace StateClassLib
             this.year = year;
         }
 
-        public YearState(ClockSetup clockSetup1)
+        public YearState(ClockSetup clockSetup)
         {
-            this.clockSetup = clockSetup1;
+            this.clockSetup = clockSetup;
         }
 
         public void PreviousValue()
@@ -35,7 +35,7 @@ namespace StateClassLib
         public void SelectValue()
         {
             Console.WriteLine("Year set to: '" + year + "'");
-            clockSetup.State = clockSetup.YearState;
+            clockSetup.State = clockSetup.MonthState;
         }
 
         public virtual string Instructions { get { return "Please set the year..."; } }

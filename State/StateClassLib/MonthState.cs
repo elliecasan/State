@@ -16,9 +16,9 @@ namespace StateClassLib
             this.clockSetup = clockSetup;
             this.month = month;
         }
-        public MonthState(ClockSetup clockSetup1)
+        public MonthState(ClockSetup clockSetup)
         {
-            this.clockSetup = clockSetup1;
+            this.clockSetup = clockSetup;
         }
 
         public void PreviousValue()
@@ -42,7 +42,7 @@ namespace StateClassLib
         public void SelectValue()
         {
             Console.WriteLine("Month set to: '" + month + "'");
-            clockSetup.State = clockSetup.MonthState;
+            clockSetup.State = clockSetup.DayState;
         }
 
         public virtual string Instructions { get { return "Please set the month..."; } }

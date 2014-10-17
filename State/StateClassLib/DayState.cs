@@ -16,9 +16,9 @@ namespace StateClassLib
             this.clockSetup = clockSetup;
             this.day = day;
         }
-          public DayState(ClockSetup clockSetup1)
+          public DayState(ClockSetup clockSetup)
         {
-            this.clockSetup = clockSetup1;
+            this.clockSetup = clockSetup;
         }
 
         public void PreviousValue()
@@ -42,7 +42,7 @@ namespace StateClassLib
         public void SelectValue()
         {
             Console.WriteLine("Day set to: '" + day + "'");
-            clockSetup.State = clockSetup.DayState;
+            clockSetup.State = clockSetup.FinishedState;
         }
 
         public virtual string Instructions { get { return "Please set the day..."; } }

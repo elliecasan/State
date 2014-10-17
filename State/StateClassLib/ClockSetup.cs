@@ -11,6 +11,7 @@ namespace StateClassLib
         private IClockSetupState yearState;
         private IClockSetupState monthState;
         private IClockSetupState dayState;
+        private IClockSetupState finishedState;
 
         private IClockSetupState currentState;
 
@@ -19,8 +20,9 @@ namespace StateClassLib
             yearState = new YearState(this);
             monthState = new MonthState(this);
             dayState = new DayState(this);
+            finishedState = new FinishedState(this);
 
-            currentState = YearState;
+            currentState = finishedState;
         }
 
         public virtual IClockSetupState State
@@ -57,6 +59,12 @@ namespace StateClassLib
         {
             get { return dayState; }
             set { dayState = value; }
+        }
+
+        public virtual IClockSetupState FinishedState
+        {
+            get { return finishedState; }
+            set { finishedState = value; }
         }
 
         public virtual DateTime GetSelectedDate
