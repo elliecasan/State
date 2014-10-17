@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace StateClassLib
 {
-    public class DayState
+    public class DayState : IClockSetupState
     {
+        public void PreviousValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NextValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SelectValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Instructions { get; private set; }
+        public int SelectedValue { get; private set; }
     }
 }
