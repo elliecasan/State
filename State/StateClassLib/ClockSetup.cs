@@ -20,12 +20,13 @@ namespace StateClassLib
             monthState = new MonthState(this);
             dayState = new DayState(this);
 
-            currentState = YearState.State;
+            currentState = YearState;
         }
 
         public virtual IClockSetupState State
         {
             set { currentState = value; }
+           
         }
 
         public virtual void RotateLeft()
@@ -45,14 +46,17 @@ namespace StateClassLib
         public virtual IClockSetupState YearState
         {
             get { return yearState; }
+            set { yearState = value; }
         }
         public virtual IClockSetupState MonthState
         {
             get { return monthState; }
+            set { monthState = value; }
         }
         public virtual IClockSetupState DayState
         {
             get { return dayState; }
+            set { dayState = value; }
         }
 
         public virtual DateTime GetSelectedDate

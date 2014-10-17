@@ -11,10 +11,14 @@ namespace StateClassLib
         private ClockSetup clockSetup;
         private int month;
 
-        public MonthState(ClockSetup clockSetup)
+        public MonthState(ClockSetup clockSetup, int month)
         {
             this.clockSetup = clockSetup;
-            month = DateTime.Now.Month;
+            this.month = month;
+        }
+        public MonthState(ClockSetup clockSetup1)
+        {
+            this.clockSetup = clockSetup1;
         }
 
         public void PreviousValue()

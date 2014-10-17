@@ -11,10 +11,15 @@ namespace StateClassLib
         private ClockSetup clockSetup;
         private int year;
 
-        public YearState(ClockSetup clockSetup)
+        public YearState(ClockSetup clockSetup, int year)
         {
             this.clockSetup = clockSetup;
-            year = DateTime.Now.Year;
+            this.year = year;
+        }
+
+        public YearState(ClockSetup clockSetup1)
+        {
+            this.clockSetup = clockSetup1;
         }
 
         public void PreviousValue()

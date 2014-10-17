@@ -11,10 +11,14 @@ namespace StateClassLib
         private ClockSetup clockSetup;
         private int day;
 
-        public DayState(ClockSetup clockSetup)
+        public DayState(ClockSetup clockSetup, int day)
         {
             this.clockSetup = clockSetup;
-            day = DateTime.Now.Day;
+            this.day = day;
+        }
+          public DayState(ClockSetup clockSetup1)
+        {
+            this.clockSetup = clockSetup1;
         }
 
         public void PreviousValue()

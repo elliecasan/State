@@ -26,7 +26,7 @@ namespace StateTestsLib
             setup.RotateLeft();
             setup.PushKnob();
             // Assert
-            Assert.AreEqual(expectedDate, setup.GetSelectedDate());
+            Assert.AreEqual(expectedDate, setup.GetSelectedDate);
         }
     }
 }
