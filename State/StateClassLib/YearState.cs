@@ -8,22 +8,32 @@ namespace StateClassLib
 {
     public class YearState : IClockSetupState
     {
+        private ClockSetup clockSetup;
+        private int year;
+
+        public YearState(ClockSetup clockSetup)
+        {
+            this.clockSetup = clockSetup;
+            year = DateTime.Now.Year;
+        }
+
         public void PreviousValue()
         {
-            throw new NotImplementedException();
+            year--;
         }
 
         public void NextValue()
         {
-            throw new NotImplementedException();
+            year++;
         }
 
         public void SelectValue()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Year set to: '" + year + "'");
+            clockSetup.State = clockSetup.YearState;
         }
 
-        public string Instructions { get; private set; }
-        public int SelectedValue { get; private set; }
+        public virtual string Instructions { get { return "Please set the year..."; } }
+        public virtual int SelectedValue { get { return year; } }
     }
 }

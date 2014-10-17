@@ -8,22 +8,40 @@ namespace StateClassLib
 {
     public class DayState : IClockSetupState
     {
+        private ClockSetup clockSetup;
+        private int day;
+
+        public DayState(ClockSetup clockSetup)
+        {
+            this.clockSetup = clockSetup;
+            day = DateTime.Now.Day;
+        }
+
         public void PreviousValue()
         {
-            throw new NotImplementedException();
+            if (day == 1)
+            {
+                day = 31;
+            }
+            day--;
         }
 
         public void NextValue()
         {
-            throw new NotImplementedException();
+            if (day == 31)
+            {
+                day = 1;
+            }
+            day++;
         }
 
         public void SelectValue()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Day set to: '" + day + "'");
+            clockSetup.State = clockSetup.DayState;
         }
 
-        public string Instructions { get; private set; }
-        public int SelectedValue { get; private set; }
+        public virtual string Instructions { get { return "Please set the day..."; } }
+        public virtual int SelectedValue { get { return day; } }
     }
 }

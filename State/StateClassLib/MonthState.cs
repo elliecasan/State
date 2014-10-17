@@ -8,22 +8,40 @@ namespace StateClassLib
 {
     public class MonthState : IClockSetupState
     {
+        private ClockSetup clockSetup;
+        private int month;
+
+        public MonthState(ClockSetup clockSetup)
+        {
+            this.clockSetup = clockSetup;
+            month = DateTime.Now.Month;
+        }
+
         public void PreviousValue()
         {
-            throw new NotImplementedException();
+            if (month == 1)
+            {
+                month = 12;
+            }
+            month--;
         }
 
         public void NextValue()
         {
-            throw new NotImplementedException();
+            if (month == 12)
+            {
+                month = 1;
+            }
+            month++;
         }
 
         public void SelectValue()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Month set to: '" + month + "'");
+            clockSetup.State = clockSetup.MonthState;
         }
 
-        public string Instructions { get; private set; }
-        public int SelectedValue { get; private set; }
+        public virtual string Instructions { get { return "Please set the month..."; } }
+        public virtual int SelectedValue { get { return month; } }
     }
 }
