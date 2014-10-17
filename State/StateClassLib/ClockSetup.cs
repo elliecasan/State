@@ -8,5 +8,6 @@ namespace StateClassLib
 {
     public class ClockSetup
     {
+        private IClockSetupState yearState;
     }
 }
